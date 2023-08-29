@@ -9,4 +9,4 @@ min=1100000
 for i in range(len(l)):
     if min>l[i]:
         min=l[i]
-print(f'minimum val: {min}')
+print(f'Least val: {min}')
