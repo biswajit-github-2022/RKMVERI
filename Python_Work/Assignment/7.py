@@ -7,9 +7,13 @@ print(l)
 length=len(l)
 
 i=0
-while length>i:
-    for j in range(length-i-1):
-        if l[j]>l[j+1]:
-            l[j],l[j+1]=l[j+1],l[j]
+while i<length:
+    j=i+1
+    while j<length:
+        if l[i]>l[j]:
+            l[i],l[j]=l[j],l[i]
+            i=-1
+        else :
+            j+=1
     i+=1
 print(l)
