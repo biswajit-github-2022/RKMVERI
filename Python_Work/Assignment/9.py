@@ -1,30 +1,13 @@
 alp=['a','b','c','d']
-c=0
-Word=[]
-for  i in range(len(alp)):
-    for j in range(len(alp)):
-        c+=1
-        word=alp[i]+alp[j]
-        Word.append(word)
-print(f'number of words = {c} and words are: {Word}\n')
+l1,l2,l3=[],[],[]
 
-c=0
-Word=[]
-for  i in range(len(alp)):
-    for j in range(len(alp)):
-        for k in range(len(alp)):
-            c+=1
-            word=alp[i]+alp[j]+alp[k]
-            Word.append(word)
-print(f'number of words = {c} and words are: {Word}\n')
-
-c=0
-Word=[]
-for  i in range(len(alp)):
-    for j in range(len(alp)):
-        for k in range(len(alp)):
-            for l in range(len(alp)):
-                c+=1
-                word=alp[i]+alp[j]+alp[k]+alp[l]
-                Word.append(word)
-print(f'number of words = {c} and words are: {Word}\n')
+for  i in alp:
+    for j in alp:
+        l1.append(i+j)
+        for k in alp:
+            l2.append(i+j+k)
+            for l in alp:
+                l3.append(i+j+k+l)
+print(f'number of words = {len(l1)} and words are: {l1}\n')
+print(f'number of words = {len(l2)} and words are: {l2}\n')
+print(f'number of words = {len(l3)} and words are: {l3}\n')
