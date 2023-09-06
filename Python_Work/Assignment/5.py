@@ -12,7 +12,7 @@ while len(l)>0:
     l.remove(min)
     c+=1
 
-# print(l1)
+print(l1)
 # l=[1,2,3,4,5]
 # l.remove(1)
 # print(l)
