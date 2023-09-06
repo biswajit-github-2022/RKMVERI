@@ -1,6 +1,6 @@
 
 l=[7, 4, 1, 17, 19, 17, 1, 5, 3, 10]
-# l=list(set(l))
+l=list(set(l))
 # print(l)
 for i in range (0,len(l)):
     for j in range(i+1,len(l)):
