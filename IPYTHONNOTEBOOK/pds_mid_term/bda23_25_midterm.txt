@@ -1,0 +1,46 @@
+1.
+a. Create an tuple of 5 literal elements - 2 numbers, 1 string and 2 boolean.
+b. Convert the tuple created in previous question into a list
+c. Add a new element to the list from the previous step.
+d. create a new list of 2 literal elements and add the contents from this new list to the list from the earlier questions such that the updated list is now made up of 7 literal elements.
+e. given a string - 'examination' extract the substring 'nation' using two ways - using positive indices and negative indices.
+f. using the list created in fourth sub-part select the alternative elements and create a new set from these selected elements. 
+g. create a for loop to multiply the elements of a list with any number so that the original list is updated. 
+h. create a while loop to multiply the elements of a list with any number so that the original list is updated. 
+i. create a dictionary so that the keys are first letter of a fruit name and the values are the corresponding fruit names.
+j. given a list of integers find the statistical range (difference of the largest number and smallest number) of the numbers in the list using some of the built-in functions.
+
+
+2. 
+Using the provided text file bda23_25_midterm.txt do the following:
+a. find the count of all the vowels (a,e,i,o,u)
+b. find the count of all the words (anything separated by space is a word).
+c. arrange the words in descending order of counts.
+
+3.
+(a)
+Create a function that receives a tuple and a number as two parameters. The function returns a tuple with the contents of the tuple it received as one of the parameters multiplied by the number it received as the other parameter.
+(b)
+chr() function in python provides converts an ASCII code into the corresponding ASCII character. Numbers frm 65 to 90 generate from A to Z. Do the following:
+i) Use this function to generate a random collection of 1000 alphabets. 
+ii) Categorise the alpabhet collection into 3 categories a1, c1 and c2 and put them into an appropriate dictionary based data structure. All the vowels A,E,I,O,U go to a1, C, S, X, Z, J go to c1 and rest go to c2. 
+iii) print a report where on each line the frequency count is shown as stars beside the category labels (see sample report below):
+a1 ****************
+c1 ***********************
+c2 *************************************************************
+
+
+4.
+(a)
+Convert the following python datastructure A into datastructure B given below programmatically:
+A = {'one': [5,2,7,1], 'two': ('z','q',3,6), 'three': {8,9,'m','n'}}
+B = [['one','two','three'], [5,'z',8],[2,'q',9],[7,3,'m'],[1,6,'n']]
+(b)
+Write a function that accepts two parameters (a list of sorted numbers and a value to be inserted into the list). The function inserts the second parameter in the correct location in the sorted list. Demonstrate the correctness of the function for all the following test cases:
+test case 1: sorted list having values 2,3,4,56,100,102 in that order and the value to be inserted is 1
+test case 2: sorted list having values 2,3,4,56,100,102 in that order and the value to be inserted is 2
+test case 3: sorted list having values 2,3,4,56,100,102 in that order and the value to be inserted is 5
+test case 4: sorted list having values 2,3,4,56,100,102 in that order and the value to be inserted is 10
+test case 5: sorted list having values 2,3,4,56,100,102 in that order and the value to be inserted is 101
+test case 6: sorted list having values 2,3,4,56,100,102 in that order and the value to be inserted is 102
+test case 7: sorted list having values 2,3,4,56,100,102 in that order and the value to be inserted is 103
