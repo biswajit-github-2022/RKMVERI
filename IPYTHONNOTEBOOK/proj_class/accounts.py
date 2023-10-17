@@ -9,10 +9,10 @@ class Fixed_deposite_ac(bnk.Bank):
         self.amount=amount
         self.time=time
         print(f"Amount deposited in FD is Rs.{amount}")
-        print(f"Rate of interest in FD is {self.FD_roi} ")
         super().__init__(amount)
     
     def interest(self, time):
+        print("==============Interest================")
         if time<=0:
             print("insterest cannot be calculated")
         Amount =self.amount * (pow((1 + self.FD_roi/100), time))
@@ -30,9 +30,10 @@ class Fixed_deposite_ac(bnk.Bank):
             self.amount-=amount
             print( f"Current Balance in Account is {self.amount}")
     def __str__(self) :
-        print("==============Our Interset================")
+        print("==============Our Interset In Fixed Deposites================")
         return f"Rate of Interest in Bank is {self.FD_roi}"
 class Savings_ac(bnk.Bank):
+
     def __init__(self,money):
         print("==============Amount================")
         self.amount=money
@@ -69,7 +70,7 @@ class Savings_ac(bnk.Bank):
             print(f"compounded interest on current money over {time} month will be Rs.{CI} ")
 
     def __str__(self) :
-        print("==============Our Interset================")
+        print("==============Our Interset in Savings================")
         return f"Rate of Interest in Bank is {bnk.Bank.rate_of_interest}"
 
 
@@ -84,39 +85,3 @@ if __name__ == "__main__":
 
     o3=Savings_ac(900)
     print(o3.interest(10))
-
-
-# class FixedDepositAccount(bnk.Bank):
-
-#     fd_roi=bnk.Bank.rate_of_interest+1
-
-#     def __init__(self, money, term):
-#         super().__init__(money)
-#         self.term = term
-
-#     def maturity_amount(self):
-#         money_with_interest = (self.amount * (self.term / 12) * self.fd_roi) / 100
-#         return self.amount + money_with_interest
-
-#     def __str__(self):
-#         return f"Rate of Interest in Fixed Deposit Account is {self.rate_of_interest}"
-
-
-# class SavingsAccount(bnk.Bank):
-#     def __init__(self, money, minimum_balance):
-#         super().__init__(money)
-#         self.minimum_balance = minimum_balance
-
-#     def is_balance_below_minimum(self):
-#         return self.amount < self.minimum_balance
-
-#     def __str__(self):
-#         return f"Rate of Interest in Savings Account is {self.rate_of_interest}"
-
-
-# # Example usage
-# fixed_deposit = FixedDepositAccount(10000, 12)
-# savings_account = SavingsAccount(5000, 1000)
-
-# print(fixed_deposit.maturity_amount())  # Calculate maturity amount
-# print(savings_account.is_balance_below_minimum())  # Check if balance is below the minimum
