@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/sysadm/Documents/Biswajit_Rana/C",
-      "program": "/home/sysadm/Documents/Biswajit_Rana/C/build/Debug/outDebug",
+      "cwd": "/home/sysadm/Documents/Biswajit_Rana/C/student_file",
+      "program": "/home/sysadm/Documents/Biswajit_Rana/C/student_file/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
