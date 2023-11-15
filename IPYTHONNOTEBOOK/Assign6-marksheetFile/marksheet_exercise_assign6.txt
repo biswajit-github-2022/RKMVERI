@@ -1,0 +1,16 @@
+Build a file reader class which reads a text file delimited by any specified delimiter and having the first row as the column names. This class reads the file in its initialization method where the filename and the delimiter are passed as parameters. In the overriden initialization method the following happens:
+-file is read
+-the file name, file size, column headers is stored into instance variables (use the os.path module method to fetch the file size)
+-the file data is read and stored column-wise and row-wise into seperate instance variables
+
+So the class has total of 5 instance variables.
+
+The class overrides the string method and it returns a formatted string containing the filename, filesize, the number of columns and the number of rows of data.
+
+The class has 4 other methods as described below:
+1. it receives a variable number of row numbers as paramter(s) and prints the data contained in those rows. (hint: use *args and we will assume that the first row of data starts with value 1)
+2. it receives a column name and prints the data for the entire column
+3. it receives a column name and a column value as parameters and prints all the rows having that column value.
+4. it receives a pair of column names and column values and prints all the rows having the specified column values in the specified columns passed as parameters. The rows printed should satsify BOTH the conditions.
+
+Important: You are to use the file reading or file handling in ONLY the initialization method and NO file related code or file objects to be used in any of the other class methods.
