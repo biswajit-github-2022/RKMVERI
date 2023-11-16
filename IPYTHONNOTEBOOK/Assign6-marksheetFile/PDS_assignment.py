@@ -86,7 +86,7 @@ class FileReaderWithDelimeter:
             print(f"Enter valid Column Name")
     
 
-file_data=FileReaderWithDelimeter("marksheet_exercise copy.txt", "::")
+file_data=FileReaderWithDelimeter("marksheet_exercise.txt", ",")
 print(file_data)
 file_data.find_row_using_number(1,2,3)
 file_data.find_column_using_header("Year")
