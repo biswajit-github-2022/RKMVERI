@@ -1,0 +1,85 @@
+Timestamp,Email address,Score,Full Name,"In the following code the functional parameters for the defined function are _________ and actual parameters are __________.
+
+def f1(a,b):
+	return a+b
+x = 10
+y = 20
+f1(x,y)","In the following code the value of z is:
+def f1(a,b):
+	return a+b
+x = 10
+y = 20
+z = f1(x,y)","In the following code the value of z is:
+def f1(a,b):
+	return a+b, a, b
+x = 10
+y = 20
+z = f1(x,y)","In the following code the value of l,m and n are:
+def f1(a,b):
+	return a+b, a, b
+x = 10
+y = 20
+l,m,n = f1(x,y)","In the following code the value of z is:
+def f1(a,b):
+	x, y, z = a+b, a, b
+x = 10
+y = 20
+z = f1(x,y)","In the following code the value of x printed is:
+def f1(x,y):
+	x += 1
+x = 10
+y = 20
+f1(x,y)
+print(x)","In the following code the value of x printed is:
+def f1(x,y):
+	x += 1
+	return x
+x = 10
+y = 20
+f1(x,y)
+print(x)","In the following code the value of z printed is:
+def f1(x,y,*args):
+    return x+y+args[0]+args[1]
+z = f1(1,2,3,4,5,6)
+print(z)","In the following code the value of z printed is:
+def f1(x=10,y=11,*args):
+    if len(args)>0:
+        return x+y+args[0]+args[1]
+    else:
+        return x+y
+z = f1()
+print(z)","In the following code the value of z printed is:
+def f1(x=10,y=11,*args):
+    if len(args)>0:
+        return x+y+args[0]+args[1]
+    else:
+        return x+y + args[0]
+z = f1(2,3,2,3)
+print(z)"
+06/10/2023 12:25:11,dipankardey6297@gmail.com,7 / 10,Dipankar Dey,"x,y and a,b",30,"(30,10,20)","30, 10 and 20 respectively","(30,10,20)",10,11,10,21,10
+06/10/2023 12:25:20,sanmitra29s@gmail.com,6 / 10,Sanmitra Sur,"x,y and a,b",None,"[30,10,20]","30, 10 and 20 respectively",None,None,10,10,21,10
+06/10/2023 12:26:37,patra.tuhin2020@gmail.com,10 / 10,Tuhin Patra,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,10,10,21,10
+06/10/2023 12:26:48,aniketghoshharda@gmail.com,9 / 10,Aniket Ghosh,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,11,10,10,21,10
+06/10/2023 12:28:22,saikatghosh2782001@gmail.com,10 / 10,saikat kumar ghosh,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,10,10,21,10
+06/10/2023 12:28:31,beraamit8171@gmail.com,10 / 10,Amit Bera,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,10,10,21,10
+06/10/2023 12:28:31,ghoshriddhiman8@gmail.com,8 / 10,Riddhiman Ghosh,"a,b and x,y",30,"[30,10,20]","30, 10 and 20 respectively",Gives an execution error,10,10,10,21,10
+06/10/2023 12:29:49,akatanu369@gmail.com,6 / 10,Atanu Saha,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,None,11,Gives an execution error,21,IndexError
+06/10/2023 12:29:49,sameer.srivastava2013@gmail.com,9 / 10,Sameer srivastava,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,11,10,21,10
+06/10/2023 12:30:16,ranabiswajit911@gmail.com,10 / 10,Biswajit Rana,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,10,10,21,10
+06/10/2023 12:30:20,debayan.datta0206@gmail.com,8 / 10,Debayan Datta,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively","(30,10,20)",11,10,10,21,10
+06/10/2023 12:30:35,gangulyarkajit33@gmail.com,7 / 10,Arkajit Ganguly,"a,b and x,y",30,"(30,10,20)","(30,10,20), (30,10,20) and (30,10,20) respectively",None,11,11,10,21,10
+06/10/2023 12:30:36,parimalbera244@gmail.com,10 / 10,parimal bera,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,10,10,21,10
+06/10/2023 12:30:44,jishanali3809@gmail.com,9 / 10,jishan ali,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively","30,10,20",10,10,10,21,10
+06/10/2023 12:30:52,uddalakmukherjee49@gmail.com,9 / 10,Uddalak Mukherjee,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,Gives an execution error,10,21,10
+06/10/2023 12:31:03,aryabhatta108@gmail.com,10 / 10,Arya Bhattacharjee,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,10,10,10,21,10
+06/10/2023 12:31:11,ayanmaity813@gmail.com,8 / 10,Ayan Maity,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,11,11,10,21,10
+06/10/2023 12:31:16,ankitpiklu1711@gmail.com,6 / 10,Ankit Sinha,"x,y and a,b",None,"(30,10,20)","30, 10 and 20 respectively","30,10,20",Gives an execution error,10,10,21,10
+06/10/2023 12:31:30,anuragjoardar10@gmail.com,6 / 10,Anurag Joardar,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",Gives an execution error,11,11,10,ValueError,10
+06/10/2023 12:31:38,anubhabneogi1729@gmail.com,8 / 10,Anubhab Neogi,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",None,Gives an execution error,10,10,21,26
+06/10/2023 12:31:42,roy.sonai665@gmail.com,8 / 10,Shubham Roy,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",Gives an execution error,10,10,Gives an execution error,21,10
+06/10/2023 12:32:00,rakeshnemu237@gmail.com,9 / 10,Rakesh Nemu,"a,b and x,y",30,"(30,10,20)","30, 10 and 20 respectively",Gives an execution error,10,10,10,21,10
+06/10/2023 12:32:06,diptesh953@gmail.com,9 / 10,Diptesh Saha,"a,b and x,y",30,"(30,10,20)","(30,10,20), None and None respectively",None,10,10,10,21,10
+06/10/2023 12:32:26,karsamapan0702@gmail.com,8 / 10,Samapan Kar,"a,b and x,y",30,"[30,10,20]","None, 10 and 20 respectively",None,10,10,10,21,10
+06/10/2023 12:32:34,sayandeep425@gmail.com,7 / 10,Sayandeep Chatterjee,"a,b and x,y",None,"(30,10,20)","(30,10,20), None and None respectively",None,10,10,10,21,IndexError
+06/10/2023 12:32:37,dhrupaddutta20@gmail.com,6 / 10,Dhrupad Dutta,"a,b and x,y",None,"(30,10,20)","30, 10 and 20 respectively",None,30,10,15,21,26
+06/10/2023 12:32:57,sagnik.basak.2311@gmail.com,5 / 10,SAGNIK BASAK,"a,b and x,y",None,30,Gives an execution error,None,10,10,21,ValueError,10

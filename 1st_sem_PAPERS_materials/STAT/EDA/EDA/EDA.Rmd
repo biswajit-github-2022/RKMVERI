@@ -1,0 +1,562 @@
+# EDA on Body Performance
+
+## \<\>. Loading Library in the code
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+library(corrplot)
+library(tidyr)
+library(e1071)
+```
+
+## \<\>. Loading the Data
+
+```{r}
+setwd(getwd())
+main_data<-read.csv("bodyPerformance.csv")
+View(main_data)
+```
+
+## \<\>. How many Male and Female are in the data?
+
+```{r}
+################################################################################
+# Male and female %
+################################################################################
+gender_count <- table(main_data$gender)
+data <- data.frame(
+  Category = c("Female", "Male"),
+  Value = c(gender_count)
+)
+print(gender_count)
+data$Percentage <- (data$Value / sum(data$Value)) * 100
+p <- ggplot(data, aes(x = "", y = Value, fill = Category)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar(theta = "y") +
+  labs(title = "Pie Chart of Percentage of male and female") +
+  geom_text(aes(label = paste(round(Percentage,2), "%")),
+            position = position_stack(vjust = 0.5)) +
+  theme_void()
+print(p)
+```
+
+-Male : 63.22% (8467 Males)
+
+-Female: 36.78% (4926 Females)
+
+## \<\>. How many number of Male and female are in each Class?
+
+```{r}
+################################################################################
+# no of male and female in each class//bar
+################################################################################
+
+a<-table(main_data$gender,main_data$class)
+data <- data.frame(
+  Category = c("A", "B", "C", "D"),
+  Female = c(a[1],a[3],a[5],a[7]),
+  Male = c(a[2],a[4],a[6],a[8])
+)
+data_long <- gather(data, key = "Group", value = "Value", -Category)
+p <- ggplot(data_long, aes(x = Category, y = Value, fill = Group)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Plot Between No. of people and Class", y = "No. of People",x="Class") +
+  geom_text(aes(label = Value), vjust = -0.5, position = position_dodge(width = 0.9), size = 3) +
+  scale_fill_manual(values = c("Female" = "salmon", "Male" = "skyblue"))
+print(p)
+```
+
+-A : Most number of females and Least number of Males
+
+-C : Most number of Males and Least number of Females
+
+-All class have more numbers of male than female
+
+## \<\>. Distribution of Age in the data
+
+```{r}
+################################################################################
+# frequency of age//histogram
+################################################################################
+data <- data.frame(Values = main_data$age)
+age_skew<-e1071::skewness(main_data$age)
+cat("Skewness of Age is ",age_skew)
+ggplot(data, aes(x = Values)) +
+  geom_histogram(binwidth = 8, fill = "blue", color = "black", alpha = 0.7) +
+  labs(title = "Histogram of Age", x = "Age(Years)", y = "Frequency") + 
+  theme_minimal() 
+
+```
+
+-Fewer people with higher age
+
+-more people with lower age
+
+-Age is positively Skewed so "Median" is lower than the "Mean"
+
+## \<\>. How age is Distributed in the each Class?
+
+```{r}
+################################################################################
+# box plot between age and class
+################################################################################
+
+
+data <- data.frame(
+  Category = main_data$class,
+  Value = main_data$age
+)
+p <- ggplot(data, aes(x = Category, y = Value, fill = Category)) +
+  geom_boxplot(width = 0.2) +
+  scale_fill_manual(values = c("orange", "green", "skyblue", "purple")) +
+  coord_flip()+
+  # theme_minimal() +
+  labs(title = "Horizontal Box Plots Between Class and Age",x='Class',y='Age')
+print(p)
+
+
+
+################################################################################
+# Bar plot between age and class
+################################################################################
+
+A_mean_age <- mean(main_data$age[main_data$class == 'A'])
+B_mean_age <- mean(main_data$age[main_data$class == 'B'])
+C_mean_age <- mean(main_data$age[main_data$class == 'C'])
+D_mean_age <- mean(main_data$age[main_data$class == 'D'])
+
+data4 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_age, B_mean_age, C_mean_age,D_mean_age))
+
+p4 <- ggplot(data4, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust =-0.1, size = 4) +
+  labs(title = "", x = "Class", y = "Mean Age")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Age")
+p4
+
+Aq1 <- quantile(main_data$age[main_data$class == 'A'], 0.25)
+Aq3 <- quantile(main_data$age[main_data$class == 'A'], 0.75)
+cat("Q1 of A:", Aq1, "\n")
+cat("Q3 of A:", Aq3, "\n")
+
+Bq1 <- quantile(main_data$age[main_data$class == 'B'], 0.25)
+Bq3 <- quantile(main_data$age[main_data$class == 'B'], 0.75)
+cat("Q1 of B:", Bq1, "\n")
+cat("Q3 of B:", Bq3, "\n")
+
+Cq1 <- quantile(main_data$age[main_data$class == 'C'], 0.25)
+Cq3 <- quantile(main_data$age[main_data$class == 'C'], 0.75)
+cat("Q1 of C:", Cq1, "\n")
+cat("Q3 of C:", Cq3, "\n")
+
+Dq1 <- quantile(main_data$age[main_data$class == 'D'], 0.25)
+Dq3 <- quantile(main_data$age[main_data$class == 'D'], 0.75)
+cat("Q1 of D:", Dq1, "\n")
+cat("Q3 of D:", Dq3, "\n")
+```
+
+every class contains people from every age group but
+
+\- A has a group of people which belongs to 25 to 44 age group and
+
+-D has a group of people which belongs to 25 to 50 age group
+
+-A has lesser median age than other class so better performance
+
+-D has higher median age than other class so better performance
+
+change in median age is very low , so it is
+
+-more or less each class have same distribution of age , so we try to find how body and physical attributes classify them in 4 class
+
+## \<\>. Is there any category where Female performed better than male?
+
+```{r}
+################################################################################
+# mean of PA and gender
+################################################################################
+
+M_mean_grip <- mean(main_data$gripForce[main_data$gender == 'M'])
+F_mean_grip <- mean(main_data$gripForce[main_data$gender == 'F'])
+
+
+M_mean_SBF <- mean(main_data$sit.and.bend.forward_cm[main_data$gender == 'M'])
+F_mean_SBF <- mean(main_data$sit.and.bend.forward_cm[main_data$gender == 'F'])
+
+M_mean_SU <- mean(main_data$sit.ups.counts[main_data$gender == 'M'])
+F_mean_SU <- mean(main_data$sit.ups.counts[main_data$gender == 'F'])
+
+M_mean_BrJ <- mean(main_data$broad.jump_cm[main_data$gender == 'M'])
+F_mean_BrJ <- mean(main_data$broad.jump_cm[main_data$gender == 'F'])
+
+
+data1 <- data.frame(Category = c('Male','Female'), Value = c(M_mean_grip,F_mean_grip))
+data2 <- data.frame(Category = c('Male','Female'), Value = c(M_mean_SBF,F_mean_SBF))
+data3 <- data.frame(Category = c('Male','Female'), Value = c(M_mean_SU, F_mean_SU))
+data4 <- data.frame(Category = c('Male','Female'), Value = c(M_mean_BrJ, F_mean_BrJ))
+
+color_palette <- c("red", "green", "blue", "purple")
+
+
+p1 <- ggplot(data1, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Gender", y = "Mean Grip Force(kg)",cex.main=15)+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Grip Force ")
+  # scale_y_continuous(breaks=seq(0:50:5))
+
+p2 <- ggplot(data2, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Gender", y = "Mean Sit and Bend forward(cm)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Sit and Bend forward")
+
+p3 <- ggplot(data3, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Gender", y = "Mean Situp Count")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Situp Count")
+
+p4 <- ggplot(data4, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Gender", y = "Mean Broad Jump(cm)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Broad Jump")
+
+grid.arrange(p1, p2, p3, p4, ncol = 2)
+
+```
+
+-Only In 'Sit and Bend Forward' Bar plot we can see mean performance of Female is higher than mean performance of Male
+
+## \<\>. Which Gender has better 'Body attributes' ?
+
+```{r}
+################################################################################
+# mean of PA and gender
+################################################################################
+
+M_mean_H <- mean(main_data$height_cm[main_data$gender == 'M'])
+F_mean_H <- mean(main_data$height_cm[main_data$gender == 'F'])
+
+
+M_mean_W <- mean(main_data$weight_kg[main_data$gender == 'M'])
+F_mean_W <- mean(main_data$weight_kg[main_data$gender == 'F'])
+
+M_mean_F <- mean(main_data$body.fat_.[main_data$gender == 'M'])
+F_mean_F <- mean(main_data$body.fat_.[main_data$gender == 'F'])
+
+
+
+
+data1 <- data.frame(Category =c('Male','Female'), Value = c(M_mean_H,F_mean_H))
+data2 <- data.frame(Category =c('Male','Female'), Value = c(M_mean_W,F_mean_W))
+data3 <- data.frame(Category =c('Male','Female'), Value = c(M_mean_F, F_mean_F))
+
+color_palette <- c("red", "green", "blue", "purple")
+
+
+p1 <- ggplot(data1, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Gender", y = "Mean Height(cm)",cex.main=15)+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Height ")
+  # scale_y_continuous(breaks=seq(0:50:5))
+
+p2 <- ggplot(data2, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Gender", y = "Mean Weight(kg)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Weight")
+
+p3 <- ggplot(data3, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Gender", y = "Mean Body Fat(%)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Body Fat")
+
+
+
+grid.arrange(p1, p2, p3, ncol = 2)
+
+```
+
+-Mean Body Fat percentage is higher in Female than Male
+
+-Mean Height is lower in Female than Male
+
+-Mean Weight is lower in Female than Male
+
+-Chance of male performing better than female is high
+
+## \<\>. Which class has better performing people?
+
+```{r}
+################################################################################
+# mean of PA and class 
+################################################################################
+
+A_mean_grip <- mean(main_data$gripForce[main_data$class == 'A'])
+B_mean_grip <- mean(main_data$gripForce[main_data$class == 'B'])
+C_mean_grip <- mean(main_data$gripForce[main_data$class == 'C'])
+D_mean_grip <- mean(main_data$gripForce[main_data$class == 'D'])
+
+A_mean_SBF <- mean(main_data$sit.and.bend.forward_cm[main_data$class == 'A'])
+B_mean_SBF <- mean(main_data$sit.and.bend.forward_cm[main_data$class == 'B'])
+C_mean_SBF <- mean(main_data$sit.and.bend.forward_cm[main_data$class == 'C'])
+D_mean_SBF <- mean(main_data$sit.and.bend.forward_cm[main_data$class == 'D'])
+
+A_mean_SU <- mean(main_data$sit.ups.counts[main_data$class == 'A'])
+B_mean_SU <- mean(main_data$sit.ups.counts[main_data$class == 'B'])
+C_mean_SU <- mean(main_data$sit.ups.counts[main_data$class == 'C'])
+D_mean_SU <- mean(main_data$sit.ups.counts[main_data$class == 'D'])
+
+A_mean_BrJ <- mean(main_data$broad.jump_cm[main_data$class == 'A'])
+B_mean_BrJ <- mean(main_data$broad.jump_cm[main_data$class == 'B'])
+C_mean_BrJ <- mean(main_data$broad.jump_cm[main_data$class == 'C'])
+D_mean_BrJ <- mean(main_data$broad.jump_cm[main_data$class == 'D'])
+
+
+data1 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_grip,B_mean_grip,C_mean_grip,D_mean_grip))
+data2 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_SBF, B_mean_SBF, C_mean_SBF,D_mean_SBF))
+data3 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_SU, B_mean_SU, C_mean_SU,D_mean_SU))
+data4 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_BrJ, B_mean_BrJ, C_mean_BrJ,D_mean_BrJ))
+
+# color_palette <- c("red", "green", "blue", "purple")
+
+
+p1 <- ggplot(data1, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Class", y = "Mean Grip Force(kg)",cex.main=15)+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Grip Force ")
+  # scale_y_continuous(breaks=seq(0:50:5))
+
+p2 <- ggplot(data2, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Class", y = "Mean Sit and Bend forward(cm)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Seat and Bend forward")
+
+p3 <- ggplot(data3, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Class", y = "Mean Situp Count")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Situp Count")
+
+p4 <- ggplot(data4, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Class", y = "Mean Broad Jump(cm)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Broad Jump")
+
+grid.arrange(p1, p2, p3, p4, ncol = 2)
+
+```
+
+CONCLUSION: people of age group 25-44 are considered most Fit if they have
+
+-GF above 38.62kg,
+
+-SBF above 21.39cm
+
+-Sit up count above 47
+
+-Br J above 202.4
+
+then he or she surely belongs to A
+
+## \<\>. How body attributes effects the individual being in a group?
+
+```{r}
+################################################################################
+# Box plots of Body attributes and age
+################################################################################
+
+
+data <- data.frame(
+  Category = main_data$class,
+  Value = main_data$height_cm
+)
+bp1 <- ggplot(data, aes(x = Category, y = Value, fill = Category)) +
+  geom_boxplot(width = 0.2) +
+  scale_fill_manual(values = c("orange", "green", "skyblue", "purple")) +
+  coord_flip()+
+  # theme_minimal() +
+  labs(title = "Box Plots Between Class and Height",x='Class',y='Height(cm)')
+# print(bp1)
+
+data <- data.frame(
+  Category = main_data$class,
+  Value = main_data$weight_kg
+)
+bp2 <- ggplot(data, aes(x = Category, y = Value, fill = Category)) +
+  geom_boxplot(width = 0.2) +
+  scale_fill_manual(values = c("orange", "green", "skyblue", "purple")) +
+  coord_flip()+
+  # theme_minimal() +
+  labs(title = "Box Plots Between Class and weight",x='Class',y='weight(kg)')
+# print(bp2)
+
+data <- data.frame(
+  Category = main_data$class,
+  Value = main_data$body.fat_.
+)
+bp3 <- ggplot(data, aes(x = Category, y = Value, fill = Category)) +
+  geom_boxplot(width = 0.2) +
+  scale_fill_manual(values = c("orange", "green", "skyblue", "purple")) +
+  coord_flip()+
+  # theme_minimal() +
+  labs(title = "Box Plots Between Class and Body Fat%",x='Class',y='Body Fat%')
+# print(bp3)
+
+
+
+grid.arrange(bp1, bp2,bp3, ncol = 2)
+
+
+
+
+
+
+################################################################################
+# Bar plots of mean BA and class 
+################################################################################
+
+A_mean_H <- mean(main_data$height_cm[main_data$class == 'A'])
+B_mean_H <- mean(main_data$height_cm[main_data$class == 'B'])
+C_mean_H <- mean(main_data$height_cm[main_data$class == 'C'])
+D_mean_H <- mean(main_data$height_cm[main_data$class == 'D'])
+
+A_mean_W <- mean(main_data$weight_kg[main_data$class == 'A'])
+B_mean_W <- mean(main_data$weight_kg[main_data$class == 'B'])
+C_mean_W <- mean(main_data$weight_kg[main_data$class == 'C'])
+D_mean_W <- mean(main_data$weight_kg[main_data$class == 'D'])
+
+A_mean_F <- mean(main_data$body.fat_.[main_data$class == 'A'])
+B_mean_F <- mean(main_data$body.fat_.[main_data$class == 'B'])
+C_mean_F <- mean(main_data$body.fat_.[main_data$class == 'C'])
+D_mean_F <- mean(main_data$body.fat_.[main_data$class == 'D'])
+
+
+
+
+data11 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_H,B_mean_H,C_mean_H,D_mean_H))
+data21 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_W, B_mean_W, C_mean_W,D_mean_W))
+data31 <- data.frame(Category = c('A','B','C','D'), Value = c(A_mean_F, B_mean_F, C_mean_F,D_mean_F))
+
+color_palette <- c("red", "green", "blue", "purple")
+
+
+p11 <- ggplot(data11, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Class", y = "Mean Height(cm)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Height ")
+  # scale_y_continuous(breaks=seq(0:50:5))
+
+p21 <- ggplot(data21, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  labs(title = "", x = "Class", y = "Mean Weight(kg)")+
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Weight")
+
+p31 <- ggplot(data31, aes(x = Category, y = Value, fill = Category)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label =round( Value,2)), vjust = -0.2, size = 3) +
+  labs(title = "", x = "Class", y = "Mean Body Fat(%)")+
+  # scale_fill_manual(values = color_palette) +
+  labs(title = "Mean Body Fat")
+
+
+grid.arrange(p11, p21, p31, ncol = 2)
+
+```
+
+-as all class have more or less same distribution of age so people in age group 25-44 are most fit
+
+who has height above 16.87 cm and
+
+weight below 64.42 and
+
+body fat % below 20.54% .
+
+so if an individual surely wants to be in class A he or she has to satisfy there Body attributes,
+
+## \<\> Is there any relation between Height and Broad jump?
+
+```{r}
+
+data <- data.frame(
+  X = main_data$height_cm,
+  Y = main_data$broad.jump_cm
+)
+
+
+scatter_plot <- ggplot(data, aes(x = X, y = Y)) +
+  geom_point(size=0.5) +
+  labs(title = "Scatter Plot b/w Height and Broad Jump", x = "Height(cm)", y = "Broad Jump(cm)")
+
+
+print(scatter_plot)
+
+correlation <- cor(main_data$height_cm, main_data$broad.jump_cm,method = "kendall")
+cat("Correlation: ",correlation)
+```
+
+-From Scatter Plot as height increases Amount of broad jump measure also increases
+
+-so they are +co related
+
+-Also from kendall Tau's correlation measurement we get +ve correlation
+
+## \<\>What is the relation between Body Attributes and Physical Attributes?
+
+```{r}
+################################################################################
+# Correlation matrix
+################################################################################
+
+num_data<-main_data[sapply(main_data,is.numeric)]
+cor_matrix <- cor(num_data)
+corrplot(
+  cor_matrix,
+  method = "color",        
+  diag = FALSE,
+  type = "full",           
+  tl.cex = 0.8,            
+  tl.col = "black",         
+  tl.srt = 45,             
+  tl.pos = "t",            
+  addCoef.col = "black",   
+  col = colorRampPalette(c("red","white", "green"))(100),  
+  number.cex = 0,         
+  mar = c(4, 0, 0.1, 0)       
+)
+title("Correlation Matrix(Heat Map) Plot", line = 2, outer = FALSE)
+
+
+```
+
+-age is negatively corelatd to all Physical attributes
+
+-height is positively correlated to sit_ups_counts and broad_jump,weight
+
+-height is negatively correlated to body_fat_percentage
+
+-body_fat_percentage is negatively correlated to sit_ups_count and broad_jump

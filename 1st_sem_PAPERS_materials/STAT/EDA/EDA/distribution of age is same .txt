@@ -1,0 +1,10 @@
+distribution of age is same 
+age is +skew
+how age group is distributed =>samely so find out constrains which defins which individual will belong to which catagory =>constraints on performance attribute,body attribute=>now if performance is good then what body attr. is needed to be maintained, how body attr and phy attr is cor
+
+
+
+
+today im going to present an exp. analysis of a data which is about rbody performance of individual ..this data contains 11 columns ..let me give the summary of those columns 
+after sum.
+so first we find out number of female and male in the data

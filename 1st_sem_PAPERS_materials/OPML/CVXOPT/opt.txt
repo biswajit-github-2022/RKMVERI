@@ -1,0 +1,14 @@
+Click https://xavierbourretsicotte.github.io/SVM_implementation.html link to open resource.
+
+
+
+
+
+
+
+
+
+
+go through pages 80-86 for understanding of qp and kkt solver
+
+Click https://buildmedia.readthedocs.org/media/pdf/cvxopt/dev/cvxopt.pdf link to open resource.

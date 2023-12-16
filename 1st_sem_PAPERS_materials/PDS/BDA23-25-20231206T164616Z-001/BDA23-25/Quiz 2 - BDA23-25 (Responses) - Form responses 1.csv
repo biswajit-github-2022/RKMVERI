@@ -1,0 +1,61 @@
+Timestamp,Email address,Score,Full Name,If m is a list then to find the number of elements in the list m we use:,"What will the output of the following:
+t1 = (1,2,3)
+a,b,c = t1
+a+c",In which of the following python data structures can elements be added later on after creation of the new data structure (choose one best answer):,"Will the happen when the code blocks A and B are executed:
+A.
+for x in [0,1,2,3,4,5]:
+    if x%2==0:
+        print(x)
+B.
+for x in list(range(5)):
+    if x%2==0:
+        print(x)","When the following code is executed it will give an error:
+for x,y in [(2,4),(4,5)]:
+    if x%2==0:
+        print(x)","when we execute the following code which line will give an error:
+t1 = (1,2,3)
+l1 = [1,2,3]
+s1= {1,2,3}
+d1 = {1:'a',2:'b',3:'c'}
+t1[1]
+l1[1]
+s1[1]
+d1[1]","What is the result of the execution of the following code:
+d1 = {'a': 'a', 2: 'b', 3: 'c'}
+l1 = []
+for x in d1:
+    l1.append(x)
+print(l1)",Which of the following are correct for loop syntax:,"What is the output of the following:
+x = 'this is a python string'
+x[:4]","What is the output of the following code:
+s1 = 'this is a line in python'
+s1[-4:-10:-2]","What is the output of the following code:
+z1 = zip([1,3,5],[4,6,1])
+l1 = [ ]
+for a,b in z1:
+    l1.append(a/b)
+print(l1)"
+13/09/2023 12:27:03,saikatghosh2782001@gmail.com,9 / 11,Saikat Kumar Ghosh,len(m),4,list,they will both execute and give the same output,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this ',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:30:48,aryabhatta108@gmail.com,9 / 11,Arya Bhattacharjee,len(m),4,list,they will both execute and give the same output,FALSE,7,"['a', 2, 3]",none of the other options,this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:30:56,patra.tuhin2020@gmail.com,10 / 11,Tuhin Patra,len(m),4,list,they will both execute and give the same output,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:31:53,ayanmaity813@gmail.com,7 / 11,Ayan Maity,len(m),4,all the other options (except None),they will both execute but will give different output,TRUE,5,will give an error,for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:32:23,uddalakmukherjee49@gmail.com,6 / 11,Uddalak Mukherjee,len(m),4,none of the other options,they will both execute and give the same output,TRUE,7,"['a', 2, 3]",none of the other options,this ',tpn',It will give an error
+13/09/2023 12:32:35,debayan.datta0206@gmail.com,10 / 11,Debayan Datta,len(m),4,all the other options (except None),they will both execute and give the same output,FALSE,5,"['a', 2, 3]",for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:33:05,ankitpiklu1711@gmail.com,10 / 11,ANKIT SINHA,len(m),4,all the other options (except None),they will both execute and give the same output,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this ',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:33:09,akatanu369@gmail.com,9 / 11,Atanu Saha,len(m),4,all the other options (except None),they will both execute and give the same output,TRUE,7,"['a', 2, 3]",for i in range(5): print (i),this ',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:33:36,sayandeep425@gmail.com,8 / 11,Sayandeep Chatterjee,len(m),4,list,they will both execute but will give different output,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this ',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:33:57,aniketghoshharda@gmail.com,8 / 11,Aniket Ghosh,len(m),4,list,B will give an error,TRUE,7,"['a', 2, 3]",for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:34:03,roy.sonai665@gmail.com,5 / 11,Shubham Roy,len(m),none of the other options,all the other options (except None),they will both execute but will give different output,FALSE,8,"['a', 'b', 'c']",for i in range(5): print (i),thi',None of the other options,"[0.25,0.5,5.0]"
+13/09/2023 12:34:13,dipankardey6297@gmail.com,8 / 11,Dipankar Dey,len(m),4,all the other options (except None),they will both execute and give the same output,FALSE,5,"['a': 'a', 2: 'b', 3: 'c']",for i in range(5): print (i),It will give an error,tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:34:49,beraamit8171@gmail.com,11 / 11,Amit Bera,len(m),4,all the other options (except None),they will both execute and give the same output,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:35:07,anuragjoardar10@gmail.com,7 / 11,Anurag Joardar,len(m),4,all the other options (except None),they will both execute but will give different output,TRUE,7,will give an error,for i in range(5): print (i),this ',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:35:09,diptesh953@gmail.com,8 / 11,Diptesh Saha,len(m),none of the other options,all the other options (except None),they will both execute and give the same output,TRUE,7,"['a', 2, 3]",for i in range(5): print (i),this',tpn',It will give an error
+13/09/2023 12:36:19,ranabiswajit911@gmail.com,10 / 11,Biswajit Rana,len(m),4,all the other options (except None),they will both execute and give the same output,FALSE,7,will give an error,for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:36:21,dhrupaddutta20@gmail.com,4 / 11,Dhrupad Dutta,len(m),4,list,Both A and B will give errors,FALSE,none of the other options,will give an error,for i in range(5): print (i),It will give an error,None of the other options,"[1,3,0]"
+13/09/2023 12:36:23,rakeshnemu237@gmail.com,7 / 11,Rakesh Nemu,len(m),4,none of the other options,they will both execute and give the same output,TRUE,7,"['a', 2, 3]",for i in range(5): print (i),this ',tpn',It will give an error
+13/09/2023 12:36:23,sameer.srivastava2013@gmail.com,5 / 11,Sameer Srivastava,len(m),3,all the other options (except None),they will both execute but will give different output,FALSE,7,"['a', 'b', 'c']",for i in range(5): print (i),this ', s',It will give an error
+13/09/2023 12:36:24,ghoshriddhiman8@gmail.com,9 / 11,Riddhiman Ghosh,length(m),4,all the other options (except None),B will give an error,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:36:26,karsamapan0702@gmail.com,11 / 11,Samapan Kar,len(m),4,all the other options (except None),they will both execute and give the same output,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:36:32,parimalbera244@gmail.com,9 / 11,parimal bera,len(m),4,set,they will both execute and give the same output,FALSE,7,"['a', 2, 3]",for i in range(5): print (i),this ',tpn',"[0.25,0.5,5.0]"
+13/09/2023 12:36:45,gangulyarkajit33@gmail.com,2 / 11,Arkajit Ganguly,len(m),none of the other options,dictionary,they will both execute and give the same output,TRUE,5,"['a': 'a', 2: 'b', 3: 'c']",for (i in range(5)): print (i),this is a python string',tp',"[-3,-3,0]"
+13/09/2023 12:37:30,jishanali3809@gmail.com,8 / 11,jishan ali,len(m),4,dictionary,they will both execute and give the same output,FALSE,8,"['a', 2, 3]",for i in range(5): print (i),this ',tpn',"[0.25,0.5,5.0]"

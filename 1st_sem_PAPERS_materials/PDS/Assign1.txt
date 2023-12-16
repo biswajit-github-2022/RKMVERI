@@ -1,0 +1,46 @@
+1. import random module and use randint function to create a list of 10 random numbers b/w 1 and 20.
+
+2. reverse a list of elements without using reversed builtin function. 
+
+3. from a sequence of integer values and find all the distinct pair of numbers in the sequence whose product is odd.
+
+4. takes a sequence of integer values and determine the least value.
+
+5. build over the solution in #4 and create a new sequence of sorted values from the original unsorted sequence. 
+Hint: a very naive sorting algorithm -->
+step 1: find the least element in the original sequence
+step 2: store this least element in a new second sequence
+step 3: delete this least element from the original sequence
+step 4: repeat steps 1-3
+
+6. take a sequence of rando, integer values and sort them using the following algorithm:
+step 1: go over the sequence from left to right and swap the consecutive value s if left one is more than right one
+step 2: go the beginning of the sequence (left most position)
+step 3: repeat steps 1-2 as many number of times as there are elements
+
+7. is it possible to optimize the algo in step 6 using a while loop?
+
+8. remove all the apostrophes from the sentence: "this can't be a problem's solution". 
+
+9. given the following characters - a,b,c,d find all the 2-char and 3-char words that can be formed. Can you also get all the 4-char words? how many words do you get in each case - print both the quanity and the words in the same print statement.
+
+10. given the set of INR currencies split Rs.1613 into the minimum number of currency values (change). Try a variety of values to test your algorithm.
+
+11. give a python representation of the following graph:
+
+city 1 to city 2 with road length 10
+city 1 to city 5 with road length 100
+city 1 to city 4 with road length 30
+city 2 to city 3 with road length 50
+city 3 to city 5 with road length 10
+city 4 to city 3 with road length 20
+city 4 to city 5 with road length 60
+
+Hint: using the following structure - for each city maintain a collection of cities one can travel from that city to another city with the corresponding road length.
+
+once you have the representation in python do the following:
+find all the possible routes from city 1 to city 5. how many routes are there? which one is the shortest?
+
+
+ 
+

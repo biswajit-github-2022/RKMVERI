@@ -1,0 +1,39 @@
+Timestamp,Email address,Score,Full Name,"If we execute the following code the output will be:
+
+l1 = [1,2]
+l1[3] == 0 or set([2,3]) == {2,3}","If we execute the following code the output will be:
+l1 = [1,2]
+l1[1] = 0 or set([2,3]) == {2,3}; l1","If we execute the following code the output will be:
+l1 = [1,2]
+l1[1] == 0 or bool({2,3})","If we execute the following code the output will be:
+0 or {2,3}","If we execute the following code the output will be:
+1 or {2,3}","If we execute the following code the output will be and there is no existing identifier x in the workspace:
+x = 9 == 2 ** 3 % 2 + 1; x","If we execute the following code the output will be and there is no existing identifier x in the workspace:
+x == 9 == 2 ** 3 % 2 + 1","If we execute the following code the output will be:
+int(2 == 4 / 2)","If we execute the following code the output will be:
+30 // 3 ** 2 + 3 * 2","If we execute the following code the output will be:
+30 + 3 - 2 // 5 ** 2 != 33"
+29/08/2023 10:53:54,aryabhatta108@gmail.com,6 / 10,Arya Bhattacharjee,IndexError,TRUE,TRUE,TRUE,FALSE,NameError: name 'x' is not defined,NameError: name 'x' is not defined,1,9,FALSE
+29/08/2023 10:53:59,sanmitra29s@gmail.comj,3 / 10,Sanmitra Sur,IndexError,IndexError,FALSE,None of the other options,None of the other options,FALSE,FALSE,TRUE,None of the other options,FALSE
+29/08/2023 10:54:07,saikatghosh2782001@gmail.com,4 / 10,Saikat Kumar Ghosh,TRUE,IndexError,IndexError,FALSE,TRUE,NameError: name 'x' is not defined,NameError: name 'x' is not defined,1,9,FALSE
+29/08/2023 10:54:12,roy.sonai665@gmail.com,4 / 10,Shubham Roy,TRUE,"[1,0]",TRUE,0,1,FALSE,TRUE,TRUE,None of the other options,FALSE
+29/08/2023 10:54:15,dhrupaddutta20@gmail.com,3 / 10,Dhrupad Dutta,TRUE,None of the other options,FALSE,"{2,3}","{2,3}",FALSE,TRUE,0,2,FALSE
+29/08/2023 10:54:42,ranabiswajit911@gmail.com,6 / 10,Biswajit Rana,IndexError,TRUE,TRUE,FALSE,TRUE,FALSE,NameError: name 'x' is not defined,TRUE,9,FALSE
+29/08/2023 10:54:45,ankitpiklu1711@gmail.com,3 / 10,ANKIT SINHA,IndexError,None of the other options,FALSE,0,1,9,FALSE,TRUE,9,TRUE
+29/08/2023 10:54:46,debayan.datta0206@gmail.com,4 / 10,Debayan Datta,TRUE,TRUE,TRUE,None of the other options,1,FALSE,FALSE,ValueError: invalid literal for int() with base 10,9,TRUE
+29/08/2023 10:54:50,akatanu369@gmail.com,4 / 10,Atanu Saha,TRUE,"[1,True]","[1,0]",0,TRUE,FALSE,FALSE,1,None of the other options,FALSE
+29/08/2023 10:54:52,karsamapan0702@gmail.com,4 / 10,Samapan Kar,IndexError,IndexError,TRUE,None of the other options,None of the other options,FALSE,NameError: name 'x' is not defined,TRUE,2,TRUE
+29/08/2023 10:55:09,uddalakmukherjee49@gmail.com,6 / 10,Uddalak Mukherjee,IndexError,None of the other options,TRUE,TRUE,TRUE,FALSE,NameError: name 'x' is not defined,ValueError: invalid literal for int() with base 10,9,FALSE
+29/08/2023 10:55:12,gangulyarkajit33@gmail.com,2 / 10,Arkajit Ganguly,TRUE,TRUE,FALSE,0,1,TRUE,NameError: name 'x' is not defined,TRUE,TRUE,SyntaxError
+29/08/2023 10:55:13,sayandeep425@gmail.com,2 / 10,Sayandeep Chatterjee,TRUE,IndexError,FALSE,None of the other options,FALSE,FALSE,NameError: name 'x' is not defined,TRUE,2,TRUE
+29/08/2023 10:55:14,aniketghoshharda@gmail.com,1 / 10,aniket ghosh,No output,"[1,0]",TRUE,TRUE,TRUE,NameError: name 'x' is not defined,TRUE,ValueError: invalid literal for int() with base 10,FALSE,TRUE
+29/08/2023 10:55:26,anubhabneogi1729@gmail.com,3 / 10,Anubhab Neogi,TRUE,TRUE,None of the other options,None of the other options,None of the other options,FALSE,NameError: name 'x' is not defined,1,2,TRUE
+29/08/2023 10:55:26,patra.tuhin2020@gmail.com,4 / 10,Tuhin Patra,IndexError,"[1,0]",FALSE,FALSE,1,FALSE,TRUE,ValueError: invalid literal for int() with base 10,9,TRUE
+29/08/2023 10:55:38,anuragjoardar10@gmail.com,4 / 10,Anurag Joardar,IndexError,TRUE,None of the other options,None of the other options,None of the other options,FALSE,NameError: name 'x' is not defined,ValueError: invalid literal for int() with base 10,9,TRUE
+29/08/2023 10:56:06,sagnik.basak.2311@gmail.com,4 / 10,SAGNIK BASAK,TRUE,"[1,0]",TRUE,"{2,3}","{2,3}",FALSE,NameError: name 'x' is not defined,0,None of the other options,None of the other options
+29/08/2023 10:56:17,rakeshnemu237@gmail.com,6 / 10,Rakesh Nemu,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,NameError: name 'x' is not defined,1,9,FALSE
+29/08/2023 10:56:21,ayanmaity813@gmail.com,5 / 10,Ayan Maity,IndexError,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE,9,FALSE
+29/08/2023 10:56:22,diptesh953@gmail.com,3 / 10,Diptesh Saha,TRUE,"[1,0]",TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,9,TRUE
+29/08/2023 10:56:26,sameer.srivastava2013@gmail.com,2 / 10,Sameer Srivastava,FALSE,IndexError,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,None of the other options,FALSE
+29/08/2023 10:56:39,jishanali3809@gmail.com,3 / 10,jishan ali,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,1,9,TRUE
+29/08/2023 10:57:05,parimalbera244@gmail.com,5 / 10,parimalbera,TRUE,TRUE,TRUE,"{2,3}",TRUE,NameError: name 'x' is not defined,FALSE,1,9,FALSE
