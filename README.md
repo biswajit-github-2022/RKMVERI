@@ -1,4 +1,5 @@
 This github repo has all the resources i made and used for the 1st sem papers
+<br>
 1.Linear Algebra and Matrix calculations
 <br>
 2.Optimization of Machine Learning
